@@ -1,0 +1,53 @@
+﻿@model WebTodoList.Models.Event
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Додати нову подію:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nameEvent" class="control-label"></label>
+                <input asp-for="nameEvent" class="form-control" />
+                <span asp-validation-for="nameEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="placeEvent" class="control-label"></label>
+                <input asp-for="placeEvent" class="form-control" />
+                <span asp-validation-for="placeEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="startDateEvent" class="control-label"></label>
+                <select asp-for="startDateEvent" class="form-control"></select>
+                <span asp-validation-for="startDateEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="endDateEvent" class="control-label"></label>
+                <select asp-for="endDateEvent" class="form-control"></select>
+                <span asp-validation-for="endDateEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descriptionEvent" class="control-label"></label>
+                <input asp-for="descriptionEvent" class="form-control" />
+                <span asp-validation-for="descriptionEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

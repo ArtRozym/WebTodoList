@@ -1,0 +1,18 @@
+﻿@page
+@model WebTodoList.Pages.Event.CreateModel
+@{
+    ViewData["Title"] = "Додання нової події";
+}
+
+<h2>@ViewData["title"]</h2>
+
+<div asp-validation-summary="All"></div>
+<form method="post">
+    <div><label>Назва події:</label><br /><input asp-for="Event.nameEvent" /></div>
+    <div><label>Місце події:</label><br /><input asp-for="Event.placeEvent" /></div>
+    <div><label>Початок події:</label><br /><input asp-for="Event.startDateEvent" type="datetime"/></div>
+    <div><label>Кінець події:</label><br /><input asp-for="Event.endDateEvent" type="datetime"/></div>
+    <div><label>Опис події:</label><br /><input asp-for="Event.descriptionEvent" /></div>
+    <input type="submit" value="Додати" />
+</form>
+

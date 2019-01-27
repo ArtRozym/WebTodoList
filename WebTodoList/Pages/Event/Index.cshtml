@@ -1,0 +1,41 @@
+﻿@page
+@model WebTodoList.Pages.Event.IndexModel
+@{
+    ViewData["Title"] = "Список подій";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p><a asp-page="Create">Додати подію</a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Назва події:</th>
+            <th>Місце події:</th>
+            <th>Початок події:</th>
+            <th>Кінець події:</th>
+            <th>Опис події:</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var events in Model.Event)
+        {
+        <tr>
+            <td>@events.nameEvent</td>
+            <td>@events.placeEvent</td>
+            <td>@events.startDateEvent</td>
+            <td>@events.endDateEvent</td>
+            <td>@events.descriptionEvent</td>
+            <td>
+                <form method="post">
+                    <a asp-page="Edit" asp-route-id="@events.ID">Змінити</a>
+                    <button type="submit" asp-page-handler="delete" asp-route-id="@events.ID">Видалити</button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

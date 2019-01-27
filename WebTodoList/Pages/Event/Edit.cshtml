@@ -1,0 +1,57 @@
+﻿@page "{id:int}"
+@model WebTodoList.Pages.Event.EditModel
+@{
+    ViewData["Title"] = "Змінна події";
+}
+
+<h2>@ViewData["Title"]</h2>
+<!--Чтобы параметр id передавался как параметр маршрута, 
+    после директивы page указан шаблон параметров маршрута "{id:int}".
+    И далее идет форма для редактирования, 
+    все поля которой привязаны к свойствам модели EditModel.-->
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Events.Id" type="hidden" />
+    <div>
+        <label>Назва</label>
+        <div>
+            <input asp-for="Event.nameEvent" />
+            <span asp-validation-for="Event.nameEvent"></span>
+        </div>
+    </div>
+    <div>
+        <label>Місце</label>
+        <div>
+            <input asp-for="Event.placeEvent" />
+            <span asp-validation-for="Event.placeEvent"></span>
+        </div>
+    </div>
+    <div>
+        <label>Початок</label>
+        <div>
+            <input asp-for="Event.startDateEvent" />
+            <span asp-validation-for="Event.startDateEvent"></span>
+        </div>
+    </div>
+    <div>
+        <label>Кінець</label>
+        <div>
+            <input asp-for="Event.endDateEvent" />
+            <span asp-validation-for="Event.endDateEvent"></span>
+        </div>
+    </div>
+    <div>
+        <label>Опис</label>
+        <div>
+            <input asp-for="Event.descriptionEvent" />
+            <span asp-validation-for="Event.descriptionEvent"></span>
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" value="Зберегти" />
+    </div>
+
+</form>
+
+
